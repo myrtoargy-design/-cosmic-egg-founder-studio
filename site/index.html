@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>COSMIC EGG · Founder Decision Studio v7</title>
+  <link rel="stylesheet" href="./studio.css">
+  <script type="module" src="./studio.mjs"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell topbar">
+      <div class="brand"><span class="mark" aria-hidden="true"></span><span>COSMIC EGG</span></div>
+      <button id="lock" class="quiet" type="button" hidden>Κλείδωμα</button>
+    </div>
+  </header>
+  <main class="shell">
+    <section id="gate" class="panel gate" aria-labelledby="page-title">
+      <h1 id="page-title">Founder Decision Studio <span>v7</span></h1>
+      <p>Πληκτρολογήστε τον κωδικό πρόσβασης για να ανοίξετε το ερωτηματολόγιο.</p>
+      <form id="unlock-form">
+        <label for="password">Κωδικός πρόσβασης</label>
+        <input id="password" type="password" required autocomplete="current-password">
+        <button id="unlock" class="primary" type="submit">Ξεκλείδωμα</button>
+        <p id="unlock-message" role="status" hidden></p>
+      </form>
+      <noscript>Ενεργοποιήστε τη JavaScript για να ανοίξει το ερωτηματολόγιο.</noscript>
+    </section>
+    <section id="studio" hidden aria-label="Ερωτηματολόγιο">
+      <div class="progress-panel">
+        <div class="progress-label"><label for="progress">Πρόοδος αποφάσεων</label><span id="progress-text"></span></div>
+        <progress id="progress" value="0" max="74"></progress>
+        <div class="section-nav">
+          <div class="section-field">
+            <label for="sections">Μετάβαση σε ενότητα</label>
+            <select id="sections"></select>
+          </div>
+          <button id="open-review" class="quiet" type="button">Τελική επισκόπηση</button>
+        </div>
+      </div>
+      <p id="save-status" role="status" hidden></p>
+      <section id="question-view" class="panel" aria-labelledby="question-title">
+        <p class="eyebrow" id="question-location"></p>
+        <h2 id="question-title" tabindex="-1"></h2>
+        <p id="question-context" class="copy" hidden></p>
+        <p id="question-source" class="copy source"></p>
+        <p id="question-owner" class="copy source"></p>
+        <div id="recommendation-panel" class="reference" hidden>
+          <h3>Σύσταση</h3>
+          <p id="question-recommendation" class="copy"></p>
+        </div>
+        <p id="question-note" class="copy" hidden></p>
+        <fieldset id="choices-panel" hidden>
+          <legend>Επιλογές απάντησης</legend>
+          <div id="choices" class="choices"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Κατάσταση απόφασης</legend>
+          <div id="statuses" class="status-options"></div>
+        </fieldset>
+        <label for="answer">Απάντηση ή σημειώσεις</label>
+        <textarea id="answer" rows="4"></textarea>
+        <nav class="question-nav" aria-label="Πλοήγηση ερωτήσεων">
+          <button id="back" class="quiet" type="button">Πίσω</button>
+          <button id="next" class="primary" type="button">Επόμενη</button>
+        </nav>
+      </section>
+      <section id="review-view" class="panel" aria-labelledby="review-title" hidden>
+        <h2 id="review-title" tabindex="-1">Τελική επισκόπηση</h2>
+        <dl id="totals" class="totals"></dl>
+        <div class="review-actions">
+          <button id="copy-summary" class="primary" type="button">Αντιγραφή σύνοψης</button>
+          <button id="export-json" class="quiet" type="button">Εξαγωγή JSON</button>
+          <button id="export-csv" class="quiet" type="button">Εξαγωγή CSV</button>
+          <button id="return-question" class="quiet" type="button">Επιστροφή στην ερώτηση</button>
+        </div>
+        <p id="review-message" role="status" hidden></p>
+        <div id="review-list"></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

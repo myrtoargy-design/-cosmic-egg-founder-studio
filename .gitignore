@@ -1,0 +1,3 @@
+/public/
+/site/*questionnaire*.json
+!/site/questionnaire.enc.json
